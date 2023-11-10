@@ -5,6 +5,10 @@
 
 ![Demo gif](assets/demo.gif)
 
+<p align="center">
+  <img src="https://github.com/AbsoluteStratos/FartKnight/blob/main/assets/demo.gif?raw=true" alt="Demo gif"/>
+</p>
+
 Adds a fart "attack" ability to Hollow Knight.
 More or less this was just a goofy project to explore the basics of writing a Hollow Knight mod.
 I don't really intend on developing this further, but rather make an effor to document the anatomy of this mod for new modder like myself to hopefully stumble upon and use as a intermediate step between the elementry sample in the modding docs and more advanced mods.
