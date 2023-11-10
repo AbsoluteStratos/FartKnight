@@ -33,7 +33,7 @@ namespace FartKnight
             // This WasPressed is defined in the subclass `OneAxisInputControl`
             if (GS.KeyBinds.Action.WasPressed)
             {
-                Modding.Logger.Log("Fart Key Pressed", FartKnight.GS.LogLevel);
+                Modding.Logger.Log("[Fart Knight] Fart Key Pressed", FartKnight.GS.LogLevel);
                 HeroController.instance.GetComponent<FartHandler>().Run();
             }
         }
