@@ -6,9 +6,9 @@
   <img src="https://github.com/AbsoluteStratos/FartKnight/blob/main/assets/demo.gif" alt="Demo gif"/>
 </p>
 
-Adds a fart "attack" ability to Hollow Knight.
+Adds a fart "attack" ability to Hollow Knight (`f` by default).
 More or less, this was just a goofy project to explore the basics of writing a Hollow Knight mod.
-I don't really intend on developing this further, but rather make an effort to document the anatomy of this mod for new modder like myself to hopefully stumble upon and use as an intermediate step between the elementary sample in the modding docs and more advanced mods.
+I don't really intend on developing this further, but rather make an effort to document the anatomy of this mod for new modders like myself to hopefully stumble upon and use as an intermediate step between the elementary sample in the modding docs and more advanced mods.
 I made an attempt to roughly document the code with reference links to different repos I got guidance from.
 Many of the basic concepts in this mod can be extended to potentially create new weapons, companions, etc.
 
@@ -20,7 +20,7 @@ This mod has the following features:
 - Spawns new game object into the scene with an animation and hitbox
 - Plays a SFX on attack
 
-Everything in this mod was done via C# scripting in VSCode and looking at online documentation / APIs.
+Everything in this mod was done via C# scripting in Visual Studio and looking at online documentation / APIs.
 There are a number of older legacy tools that can make modding easier that I don't know how to use.
 Additionally, one can also use Unity and bundle assets to then inject into the game.
 I consider these a requirement for more advanced mods, but for a simple concept like this I wanted to try to approach through pure scripting.
