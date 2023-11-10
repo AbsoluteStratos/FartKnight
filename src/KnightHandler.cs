@@ -10,8 +10,8 @@ using System.Text;
 using UnityEngine;
 using SFCore;
 
-namespace MyFirstMod;
-public class AnimationHandler: MonoBehaviour
+namespace FartKnight;
+public class KnightHandler: MonoBehaviour
 {
     private tk2dSpriteAnimator _anim;
     private tk2dSpriteCollectionData _fartKnightSC;
@@ -41,7 +41,7 @@ public class AnimationHandler: MonoBehaviour
     // Method for Mod class
     public void Run()
     {
-        Modding.Logger.Log("[Fart Knight] Fire Knight Animation", MyFirstMod.GS.LogLevel);
+        Modding.Logger.Log("[Fart Knight] Fire Knight Animation", FartKnight.GS.LogLevel);
         base.StartCoroutine(PlayFart());
     }
 
@@ -57,7 +57,7 @@ public class AnimationHandler: MonoBehaviour
         yield return _anim.PlayAnimWait("KnightFartAnimation");
         // HeroController.instance.RegainControl();
         HeroController.instance.StartAnimationControl();
-        Modding.Logger.Log("[Fart Knight] Knight animation complete", MyFirstMod.GS.LogLevel);
+        Modding.Logger.Log("[Fart Knight] Knight animation complete", FartKnight.GS.LogLevel);
         yield break;
     }
 
@@ -68,7 +68,7 @@ public class AnimationHandler: MonoBehaviour
     {
         // Creates sprite collection in tk2d, basically collection of textures
         // Some info here: https://www.2dtoolkit.com/docs/latest/tutorial/creating_a_sprite_collection.html
-        Texture2D Idle = Satchel.AssemblyUtils.GetTextureFromResources("MyFirstMod.Resources.Knite_Sprite.png");
+        Texture2D Idle = Satchel.AssemblyUtils.GetTextureFromResources("FartKnight.Resources.Knite_Sprite.png");
         GameObject IdleGo = new GameObject("Knight Fart Sprite Collection");
 
         int num_frames = 6;
@@ -89,7 +89,7 @@ public class AnimationHandler: MonoBehaviour
         //FrogCore.Utils.CreateTk2dSpriteCollection(Idle, names, rects, anchors, IdleGo);
         _fartKnightSC = FrogCore.Utils.CreateFromTexture(IdleGo, Idle, tk2dSpriteCollectionSize.PixelsPerMeter(64f), new Vector2(width * num_frames, height), names, rects, null, anchors, rotated);
         _fartKnightSC.hasPlatformData = false;
-        Modding.Logger.Log("[Fart Knight] Created Knight Collections!", MyFirstMod.GS.LogLevel);
+        Modding.Logger.Log("[Fart Knight] Created Knight Collections!", FartKnight.GS.LogLevel);
     }
 
     // Following HK Vocal

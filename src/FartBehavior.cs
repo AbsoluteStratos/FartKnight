@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace MyFirstMod;
+namespace FartKnight;
 public class FartBehavior : MonoBehaviour
 {
     Rigidbody2D rb2d;
@@ -44,7 +44,7 @@ public class FartBehavior : MonoBehaviour
 
         if (col.gameObject.name.Contains("Idle") || hm != null)
         {
-            Modding.Logger.Log("[Fart Knight] Enemy hit", MyFirstMod.GS.LogLevel);
+            Modding.Logger.Log("[Fart Knight] Enemy hit", FartKnight.GS.LogLevel);
             HeroController.instance.ResetAirMoves();
             HitTaker.Hit(col.gameObject, bulletDummyHitInstance);
             return;

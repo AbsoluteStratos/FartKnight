@@ -1,5 +1,4 @@
-﻿using MyFirstMod;
-using System;
+﻿using System;
 using System.Collections;
 using System.IO;
 using System.Reflection;
@@ -10,7 +9,7 @@ using static UnityEngine.Rendering.VirtualTexturing.Debugging;
 using FrogCore;
 using HutongGames.PlayMaker;
 
-namespace MyFirstMod;
+namespace FartKnight;
 public class FartHandler : MonoBehaviour
 {
     private static GameObject fartPrehab;
@@ -41,13 +40,13 @@ public class FartHandler : MonoBehaviour
         if (activeIndex < MAX_INSTANCES && !ACTIVE)
         {
             ACTIVE = true;
-            Modding.Logger.Log("[Fart Knight] Fart Trigger ", MyFirstMod.GS.LogLevel);
+            Modding.Logger.Log("[Fart Knight] Fart Trigger ", FartKnight.GS.LogLevel);
             // Run Hollow Knight animation
-            HeroController.instance.GetComponent<AnimationHandler>().Run();
+            HeroController.instance.GetComponent<KnightHandler>().Run();
             // Spawn collider
             StartCoroutine(CreateFartAnimation());
             // Play SFX (turned on/off via the global settings)
-            if (MyFirstMod.GS.EnableSound)
+            if (FartKnight.GS.EnableSound)
             {
                 _audioSource.PlayOneShot(_fartClip);
             }
@@ -70,15 +69,15 @@ public class FartHandler : MonoBehaviour
 
     private IEnumerator PlaySpriteAnimation(GameObject fart)
     {
-        Modding.Logger.Log("[Fart Knight] PLAYING ANIMATION", MyFirstMod.GS.LogLevel);
+        Modding.Logger.Log("[Fart Knight] PLAYING ANIMATION", FartKnight.GS.LogLevel);
         // Hooks up to the objects tk2dSpriteAnimation on add? Idk somehow
         tk2dSpriteAnimator _anim = fart.GetComponent<tk2dSpriteAnimator>();
 
-        Modding.Logger.Log("[Fart Knight] Animation Clip: " + _anim.Library.clips[0].name, MyFirstMod.GS.LogLevel);
-        Modding.Logger.Log("[Fart Knight] Animation Frames: " + _anim.Library.clips[0].frames.Length, MyFirstMod.GS.LogLevel);
+        Modding.Logger.Log("[Fart Knight] Animation Clip: " + _anim.Library.clips[0].name, FartKnight.GS.LogLevel);
+        Modding.Logger.Log("[Fart Knight] Animation Frames: " + _anim.Library.clips[0].frames.Length, FartKnight.GS.LogLevel);
 
         yield return _anim.PlayAnimWait("FartAnimation");
-        Modding.Logger.Log("[Fart Knight] Animation Complete", MyFirstMod.GS.LogLevel);
+        Modding.Logger.Log("[Fart Knight] Animation Complete", FartKnight.GS.LogLevel);
     }
 
     private IEnumerator Disable()
@@ -109,7 +108,7 @@ public class FartHandler : MonoBehaviour
         // Make active
         fartObject.SetActive(true);
         fartObject.layer = 1;
-        Modding.Logger.Log("[Fart Knight] Object Layer: " + fartObject.layer, MyFirstMod.GS.LogLevel);
+        Modding.Logger.Log("[Fart Knight] Object Layer: " + fartObject.layer, FartKnight.GS.LogLevel);
 
         return fartObject;
     }
@@ -123,7 +122,7 @@ public class FartHandler : MonoBehaviour
             yield return null;
         }
         while (HeroController.instance == null || GameManager.instance == null);
-        Modding.Logger.Log("[Fart Knight] Instantiating Fart Prefab", MyFirstMod.GS.LogLevel);
+        Modding.Logger.Log("[Fart Knight] Instantiating Fart Prefab", FartKnight.GS.LogLevel);
         Resources.LoadAll<GameObject>("");
 
         //Prefab for the fart object, we will instantiate on button press
@@ -178,7 +177,7 @@ public class FartHandler : MonoBehaviour
             fps = 12,
         };
 
-        Modding.Logger.Log("[Fart Knight] Creating tk2dAnimatedSprite", MyFirstMod.GS.LogLevel);
+        Modding.Logger.Log("[Fart Knight] Creating tk2dAnimatedSprite", FartKnight.GS.LogLevel);
         // Sprite animation is a collection  of clips that is the "Library" of the animated sprite
         // Useful: https://www.2dtoolkit.com/docs/latest/html/annotated.html
         tk2dSpriteAnimation spriteAnimation = fartPrehab.AddComponent<tk2dSpriteAnimation>();
@@ -210,17 +209,17 @@ public class FartHandler : MonoBehaviour
         // Not active
         fartPrehab.SetActive(false);
         DontDestroyOnLoad(fartPrehab);
-        Modding.Logger.Log("[Fart Knight] Created Fart Prefab", MyFirstMod.GS.LogLevel);
+        Modding.Logger.Log("[Fart Knight] Created Fart Prefab", FartKnight.GS.LogLevel);
     }
 
     // Loads wav file into audioclip
     // https://github.com/SFGrenade/SFCore/blob/master/Util/WavUtils.cs
     private AudioClip LoadAudioClip()
     {
-        Modding.Logger.Log("[Fart Knight] Loading audio clip from resources", MyFirstMod.GS.LogLevel);
+        Modding.Logger.Log("[Fart Knight] Loading audio clip from resources", FartKnight.GS.LogLevel);
         var assembly = Assembly.GetExecutingAssembly();
         // In Resources folder
-        Stream s = assembly.GetManifestResourceStream("MyFirstMod.Resources.fart.wav");
+        Stream s = assembly.GetManifestResourceStream("FartKnight.Resources.fart.wav");
         AudioClip clip = SFCore.Utils.WavUtils.ToAudioClip(s, "fart");
         return clip;
     }
@@ -231,7 +230,7 @@ public class FartHandler : MonoBehaviour
     {
         // Creates sprite collection in tk2d, basically collection of textures
         // Some info here: https://www.2dtoolkit.com/docs/latest/tutorial/creating_a_sprite_collection.html
-        Texture2D Idle = Satchel.AssemblyUtils.GetTextureFromResources("MyFirstMod.Resources.Fart_Sprite.png");
+        Texture2D Idle = Satchel.AssemblyUtils.GetTextureFromResources("FartKnight.Resources.Fart_Sprite.png");
         GameObject IdleGo = new GameObject("Fart Sprite Collection");
 
         int num_frames = 9;
@@ -250,7 +249,7 @@ public class FartHandler : MonoBehaviour
         //FrogCore.Utils.CreateTk2dSpriteCollection(Idle, names, rects, anchors, IdleGo);
         _fartSC = FrogCore.Utils.CreateFromTexture(IdleGo, Idle, tk2dSpriteCollectionSize.PixelsPerMeter(128f), new Vector2(width * num_frames, height), names, rects, null, anchors, new bool[num_frames]);
         _fartSC.hasPlatformData = false;
-        Modding.Logger.Log("[Fart Knight] Created Collections!", MyFirstMod.GS.LogLevel);
+        Modding.Logger.Log("[Fart Knight] Created Collections!", FartKnight.GS.LogLevel);
     }
 
     // https://docs.unity3d.com/Manual/Example-CreatingaBillboardPlane.html

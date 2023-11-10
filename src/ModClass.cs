@@ -21,7 +21,7 @@ namespace FartKnight
         internal static FartKnight instance;
         internal static GlobalSettings GS = new GlobalSettings();
         new public string GetName() => "Fart Knight";
-        public override string GetVersion() => "1";
+        public override string GetVersion() => "0.1.0";
 
         public override void Initialize()
         {
@@ -42,7 +42,7 @@ namespace FartKnight
         private void OnHeroControllerAwake(On.HeroController.orig_Awake orig, HeroController self)
         {
             orig.Invoke(self);
-            self.gameObject.AddComponent<AnimationHandler>();
+            self.gameObject.AddComponent<KnightHandler>();
             self.gameObject.AddComponent<FartHandler>();
         }
 

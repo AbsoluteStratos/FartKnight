@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34221.43
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FartKnight", "MyFirstMod\FartKnight.csproj", "{BAFB4BAB-2C14-492B-AB78-72F0810C684E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FartKnight", "src\FartKnight.csproj", "{CCDECBE7-D2DF-4F73-91A9-87180103F22E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{BAFB4BAB-2C14-492B-AB78-72F0810C684E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BAFB4BAB-2C14-492B-AB78-72F0810C684E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BAFB4BAB-2C14-492B-AB78-72F0810C684E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BAFB4BAB-2C14-492B-AB78-72F0810C684E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCDECBE7-D2DF-4F73-91A9-87180103F22E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCDECBE7-D2DF-4F73-91A9-87180103F22E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCDECBE7-D2DF-4F73-91A9-87180103F22E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCDECBE7-D2DF-4F73-91A9-87180103F22E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

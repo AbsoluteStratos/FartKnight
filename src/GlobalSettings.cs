@@ -22,7 +22,7 @@ namespace FartKnight
 
         private void DefaultBinds()
         {
-            Action.AddDefaultBinding(Key.O);
+            Action.AddDefaultBinding(Key.F);
         }
     }
 
