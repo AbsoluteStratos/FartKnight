@@ -18,7 +18,6 @@ namespace FartKnight
     public class FartKnight : Mod, IGlobalSettings<GlobalSettings>, ICustomMenuMod
     {
 
-        internal static FartKnight instance;
         internal static GlobalSettings GS = new GlobalSettings();
         new public string GetName() => "Fart Knight";
         public override string GetVersion() => "0.1.0";

@@ -16,7 +16,6 @@ public class KnightHandler: MonoBehaviour
     private tk2dSpriteAnimator _anim;
     private tk2dSpriteCollectionData _fartKnightSC;
     private bool addedAnimations = false;
-    private bool running = false;
 
     private void Awake()
     {

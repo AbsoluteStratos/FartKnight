@@ -5,11 +5,8 @@ using UnityEngine;
 namespace FartKnight;
 public class FartBehavior : MonoBehaviour
 {
-    Rigidbody2D rb2d;
     BoxCollider2D bc2d;
-    SpriteRenderer bulletSpriteRenderer;
     HealthManager hm;
-    double xDeg, yDeg;
 
     public bool ignoreAllCollisions = false;
 
@@ -29,9 +26,7 @@ public class FartBehavior : MonoBehaviour
 
     public void Start()
     {
-        rb2d = GetComponent<Rigidbody2D>();
         bc2d = GetComponent<BoxCollider2D>();
-        bulletSpriteRenderer = GetComponent<SpriteRenderer>();
         bc2d.enabled = !ignoreAllCollisions;
     }
 

@@ -111,7 +111,7 @@ namespace FartKnight
                                     Style = HorizontalOptionStyle.VanillaStyle,
                                     Description = new DescriptionInfo
                                     {
-                                        Text = "Elevate Mod Logs from Fine to Info"
+                                        Text = "Elevate Mod Logs from Fine to Info (F10)"
                                     }
                                 }, out var LogLevelToggle);
                     })
