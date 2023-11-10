@@ -3,7 +3,7 @@
 [![Discord](https://img.shields.io/discord/879125729936298015.svg?logo=discord&logoColor=white&logoWidth=20&labelColor=7289DA&label=Discord&color=17cf48)](https://discord.gg/F6Y5TeFQ8j) [![License](https://img.shields.io/badge/license-MIT-green)](./LICENSE)
 
 <p align="center">
-  <img src="https://github.com/AbsoluteStratos/FartKnight/blob/main/assets/demo.gif?raw=true" alt="Demo gif"/>
+  <img src="https://github.com/AbsoluteStratos/FartKnight/blob/main/assets/demo.gif" alt="Demo gif"/>
 </p>
 
 Adds a fart "attack" ability to Hollow Knight.
