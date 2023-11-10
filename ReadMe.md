@@ -7,8 +7,8 @@
 </p>
 
 Adds a fart "attack" ability to Hollow Knight.
-More or less this was just a goofy project to explore the basics of writing a Hollow Knight mod.
-I don't really intend on developing this further, but rather make an effor to document the anatomy of this mod for new modder like myself to hopefully stumble upon and use as a intermediate step between the elementry sample in the modding docs and more advanced mods.
+More or less, this was just a goofy project to explore the basics of writing a Hollow Knight mod.
+I don't really intend on developing this further, but rather make an effort to document the anatomy of this mod for new modder like myself to hopefully stumble upon and use as an intermediate step between the elementary sample in the modding docs and more advanced mods.
 I made an attempt to roughly document the code with reference links to different repos I got guidance from.
 Many of the basic concepts in this mod can be extended to create potentially new weapons, companions, etc.
 
@@ -21,9 +21,9 @@ This mod has the following features:
 - Plays a SFX on attack
 
 Everything in this mod was done via C# scripting in VSCode and looking at online documentation / APIs.
-There are a number of older legacy tools that can make moding easier that I don't know how to use.
+There are a number of older legacy tools that can make modding easier that I don't know how to use.
 Additionally, one can also use Unity and bundle assets to then inject into the game.
-I consider these a requirement for more advanced mods, but for a simple concept like this I wanted to try to approach this through pure scripting.
+I consider these a requirement for more advanced mods, but for a simple concept like this I wanted to try to approach through pure scripting.
 
 ## Repository Layout
 
