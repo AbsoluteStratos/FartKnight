@@ -2,6 +2,9 @@
 
 [![Discord](https://img.shields.io/discord/879125729936298015.svg?logo=discord&logoColor=white&logoWidth=20&labelColor=7289DA&label=Discord&color=17cf48)](https://discord.gg/F6Y5TeFQ8j) [![License](https://img.shields.io/badge/license-MIT-green)](./LICENSE)
 
+
+![Demo gif](assets/demo.gif)
+
 Adds a fart "attack" ability to Hollow Knight.
 More or less this was just a goofy project to explore the basics of writing a Hollow Knight mod.
 I don't really intend on developing this further, but rather make an effor to document the anatomy of this mod for new modder like myself to hopefully stumble upon and use as a intermediate step between the elementry sample in the modding docs and more advanced mods.
