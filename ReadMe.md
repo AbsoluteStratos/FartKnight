@@ -10,7 +10,7 @@ Adds a fart "attack" ability to Hollow Knight.
 More or less, this was just a goofy project to explore the basics of writing a Hollow Knight mod.
 I don't really intend on developing this further, but rather make an effort to document the anatomy of this mod for new modder like myself to hopefully stumble upon and use as an intermediate step between the elementary sample in the modding docs and more advanced mods.
 I made an attempt to roughly document the code with reference links to different repos I got guidance from.
-Many of the basic concepts in this mod can be extended to create potentially new weapons, companions, etc.
+Many of the basic concepts in this mod can be extended to potentially create new weapons, companions, etc.
 
 This mod has the following features:
 
