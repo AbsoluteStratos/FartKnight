@@ -25,6 +25,15 @@ There are a number of older legacy tools that can make modding easier that I don
 Additionally, one can also use Unity and bundle assets to then inject into the game.
 I consider these a requirement for more advanced mods, but for a simple concept like this I wanted to try to approach through pure scripting.
 
+## Code Walkthrough
+
+Interested in the code / mod development but need some help?
+Check out the walkthrough video which provides a more details break down of each feature (click the image :rocket:):
+
+[![Hollow Knight Mod Walkthrough](https://img.youtube.com/vi/NDjdreJs_JQ/0.jpg)](https://www.youtube.com/watch?v=NDjdreJs_JQ)
+
+
+
 ## Repository Layout
 
 ```
