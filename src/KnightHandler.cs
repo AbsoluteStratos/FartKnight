@@ -109,7 +109,8 @@ public class KnightHandler: MonoBehaviour
             new() {spriteCollection = _fartKnightSC, spriteId = 4},
             new() {spriteCollection = _fartKnightSC, spriteId = 5},
             new() {spriteCollection = _fartKnightSC, spriteId = 5}},
-            fps = 16
+            fps = 16,
+            wrapMode = tk2dSpriteAnimationClip.WrapMode.Once, // Dont loop
         };
         this._anim.Library.clips = this._anim.Library.clips.Append(idleClip).ToArray();
     }

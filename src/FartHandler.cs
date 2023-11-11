@@ -12,7 +12,7 @@ using HutongGames.PlayMaker;
 namespace FartKnight;
 public class FartHandler : MonoBehaviour
 {
-    private static GameObject fartPrehab;
+    private static GameObject fartPrefab;
     
     private int activeIndex = 0;
     private AudioClip _fartClip;
@@ -98,7 +98,7 @@ public class FartHandler : MonoBehaviour
         // Instantiate the game object from prefab, note that this will get deleted once call method is complete
         // The prefab luckly does most of the lift, so we just need to edit a few items
         // Lower collision closer to the ground
-        fartObject = Instantiate(fartPrehab, HeroController.instance.transform.position - new Vector3(directionMultiplierX * 0.0f, 0.75f, 0), new Quaternion(0, 0, 0, 0));
+        fartObject = Instantiate(fartPrefab, HeroController.instance.transform.position - new Vector3(directionMultiplierX * 0.0f, 0.75f, 0), new Quaternion(0, 0, 0, 0));
 
 
         // For some reason we need to manually inject the sprite collection into the animated sprite base after instantiation
@@ -126,13 +126,12 @@ public class FartHandler : MonoBehaviour
         Resources.LoadAll<GameObject>("");
 
         //Prefab for the fart object, we will instantiate on button press
-        fartPrehab = new GameObject("fartPrefabObject", 
+        fartPrefab = new GameObject("fartPrefabObject", 
                typeof(Rigidbody2D),
                typeof(BoxCollider2D),
                typeof(tk2dAnimatedSprite), // The sprite animation, HK uses this shitty non OSS animation package tk2d... idk cringe
                typeof(tk2dSpriteAnimator), // Helper for playing sprite animation
                typeof(FartBehavior), // Handles the on hit logic
-               typeof(AudioSource),
                typeof(PlayMakerFSM), // For coloring collision correctly in debug mod
                typeof(MeshFilter),
                typeof(MeshRenderer)
@@ -140,14 +139,14 @@ public class FartHandler : MonoBehaviour
 
         // Here we will programmatically build this object
         // This means we need to explcitly set up a mesh to use with the render
-        // I suppose one would normall asset bundle and load this? But idk how to do that :)
-        fartPrehab.GetComponent<MeshFilter>().mesh = GetMesh();
-        fartPrehab.GetComponent<MeshRenderer>().enabled = true;
+        // I suppose one would normally use a asset bundle and load this? But idk how to do that :)
+        fartPrefab.GetComponent<MeshFilter>().mesh = GetMesh();
+        fartPrefab.GetComponent<MeshRenderer>().enabled = true;
 
         // Debug option: use regular sprite to see object placement if tk2d is not working
         // Add to prefab: typeof(SpriteRenderer), conflicts with mesh render in animatedsprite
         // var secondaryTexture1 = new Texture2D(64, 64);
-        /* fartPrehab.GetComponent<SpriteRenderer>().sprite = Sprite.Create(secondaryTexture1,
+        /* fartPrefab.GetComponent<SpriteRenderer>().sprite = Sprite.Create(secondaryTexture1,
             new Rect(0, 0, secondaryTexture1.width, secondaryTexture1.height),
             new Vector2(0.5f, 0.5f), 42);*/
 
@@ -175,26 +174,27 @@ public class FartHandler : MonoBehaviour
             new() {spriteCollection = _fartSC, spriteId = 8},
             new() {spriteCollection = _fartSC, spriteId = 8}},
             fps = 12,
+            wrapMode = tk2dSpriteAnimationClip.WrapMode.Once,  // Dont loop
         };
 
         Modding.Logger.Log("[Fart Knight] Creating tk2dAnimatedSprite", FartKnight.GS.LogLevel);
         // Sprite animation is a collection  of clips that is the "Library" of the animated sprite
         // Useful: https://www.2dtoolkit.com/docs/latest/html/annotated.html
-        tk2dSpriteAnimation spriteAnimation = fartPrehab.AddComponent<tk2dSpriteAnimation>();
+        tk2dSpriteAnimation spriteAnimation = fartPrefab.AddComponent<tk2dSpriteAnimation>();
         tk2dSpriteAnimationClip[] clips = { _fartAnimationClip };
         spriteAnimation.clips = clips;
 
         // Set up animated sprite
-        tk2dAnimatedSprite animatedSprite = fartPrehab.GetComponent<tk2dAnimatedSprite>();
+        tk2dAnimatedSprite animatedSprite = fartPrefab.GetComponent<tk2dAnimatedSprite>();
         animatedSprite.Library = spriteAnimation;
         animatedSprite.Collection = _fartSC; // Gets removed but whatever
 
         //Rigidbody
-        fartPrehab.GetComponent<Rigidbody2D>().isKinematic = true;
-        fartPrehab.transform.localScale = new Vector3(1.2f, 1.2f, 0);
+        fartPrefab.GetComponent<Rigidbody2D>().isKinematic = true;
+        fartPrefab.transform.localScale = new Vector3(1.2f, 1.2f, 0);
 
         //Collider Changes
-        BoxCollider2D fartCol = fartPrehab.GetComponent<BoxCollider2D>();
+        BoxCollider2D fartCol = fartPrefab.GetComponent<BoxCollider2D>();
         fartCol.enabled = false; // false
         fartCol.isTrigger = true;
         fartCol.size = new Vector2(1.0f, 1.0f);
@@ -203,12 +203,12 @@ public class FartHandler : MonoBehaviour
         // FSM seems some hollow knight specific
         // Adding this so it appears blue on debug mod
         // https://github.com/TheMulhima/HollowKnight.DebugMod/blob/master/Source/Hitbox/HitboxRender.cs#L103
-        PlayMakerFSM fsm = fartPrehab.GetComponent<PlayMakerFSM>();
+        PlayMakerFSM fsm = fartPrefab.GetComponent<PlayMakerFSM>();
         fsm.FsmName = "damages_enemy";
 
         // Not active
-        fartPrehab.SetActive(false);
-        DontDestroyOnLoad(fartPrehab);
+        fartPrefab.SetActive(false);
+        DontDestroyOnLoad(fartPrefab);
         Modding.Logger.Log("[Fart Knight] Created Fart Prefab", FartKnight.GS.LogLevel);
     }
 

@@ -26,8 +26,6 @@ namespace FartKnight
         }
     }
 
-    public class SaveSettings { }
-
     public class GlobalSettings
     {
         public bool EnableSound = true;
