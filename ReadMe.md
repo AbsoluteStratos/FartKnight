@@ -28,7 +28,7 @@ I consider these a requirement for more advanced mods, but for a simple concept 
 ## Code Walkthrough
 
 Interested in the code / mod development but need some help?
-Check out the walkthrough video which provides a more details break down of each feature (click the image :rocket:):
+Check out the walkthrough video which provides a more detailed break down of each feature (click the image :rocket:):
 
 [![Hollow Knight Mod Walkthrough](https://img.youtube.com/vi/NDjdreJs_JQ/0.jpg)](https://www.youtube.com/watch?v=NDjdreJs_JQ)
 
@@ -63,6 +63,7 @@ These should be installed via the mod installer for development.
 ## Resources
 
 - [Modding Docs](https://prashantmohta.github.io/ModdingDocs/)
+- [Common Utility Mods](https://gist.github.com/KaanGaming/60a3272b8ffc6ba649a7fd294c57efbb)
 
 ## Support
 
